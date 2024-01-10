@@ -7,15 +7,6 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 class TestCaseFileStorage(unittest.TestCase):
-<<<<<<< HEAD
-<<<<<<< HEAD
-    """ class for test cases """
-   def test_pep8_Filestorage(self):
-       """tests pep8"""
-       style = pep8.StyleGuide(quiet=True)
-       p  = style.check_files(['models/engine/file_storage.py'])
-       self.assertEqual(p.total_errors, 0, "check pep8")
-=======
     """Class for test cases"""
 
     def test_pep8_Filestorage(self):
@@ -23,30 +14,19 @@ class TestCaseFileStorage(unittest.TestCase):
         style = pep8.StyleGuide(quiet=True)
         result = style.check_files(['models/engine/file_storage.py'])
         self.assertEqual(result.total_errors, 0, "Check pep8")
->>>>>>> 430a8ebdfdc258bcb2b93db5f0dd5f6f80bfe2a7
-       
-=======
-    """Class for test cases"""
 
-    def test_pep8_Filestorage(self):
-        """Tests pep8"""
-        style = pep8.StyleGuide(quiet=True)
-        result = style.check_files(['models/engine/file_storage.py'])
-        self.assertEqual(result.total_errors, 0, "Check pep8")
->>>>>>> e1e2e4f1ea10e00f51f0e063c624336d8743ab89
     def setUp(self):
-        """ setting up the various
-            components for the test """
+        """Setting up the various components for the test"""
         self.dir_path = 'file.json'
         self.my_model = FileStorage()
 
     def tearDown(self):
-        """ dispose json file """
+        """Dispose json file"""
         if path.exists(self.dir_path):
             os.remove(self.dir_path)
 
     def test_all(self):
-        """ check type return by all function """
+        """Check type return by all function"""
         self.assertEqual(type(self.my_model.all()), dict)
 
     def test_new(self):
@@ -56,11 +36,10 @@ class TestCaseFileStorage(unittest.TestCase):
         self.assertGreater(len_dict, 0)
 
     def test_save(self):
-        """ save content to file
-         and create if not exist"""
+        """Save content to file and create if not exist"""
         self.my_model.save()
         self.assertEqual(path.exists(self.dir_path), True)
-
+        
     def test_reload(self):
         bm = BaseModel()
         us = User()
@@ -92,4 +71,4 @@ class TestCaseFileStorage(unittest.TestCase):
 
     def test_reload_with_arg(self):
         with self.assertRaises(TypeError):
-            models.storage.reload(None)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+            models.storage.reload(None)
