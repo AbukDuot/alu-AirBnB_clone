@@ -8,12 +8,22 @@ from models.engine.file_storage import FileStorage
 
 class TestCaseFileStorage(unittest.TestCase):
 <<<<<<< HEAD
+<<<<<<< HEAD
     """ class for test cases """
    def test_pep8_Filestorage(self):
        """tests pep8"""
        style = pep8.StyleGuide(quiet=True)
        p  = style.check_files(['models/engine/file_storage.py'])
        self.assertEqual(p.total_errors, 0, "check pep8")
+=======
+    """Class for test cases"""
+
+    def test_pep8_Filestorage(self):
+        """Tests pep8"""
+        style = pep8.StyleGuide(quiet=True)
+        result = style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(result.total_errors, 0, "Check pep8")
+>>>>>>> 430a8ebdfdc258bcb2b93db5f0dd5f6f80bfe2a7
        
 =======
     """Class for test cases"""
