@@ -5,6 +5,8 @@ import unittest
 from os import path
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.user import User
+from models import storage
 
 class TestCaseFileStorage(unittest.TestCase):
     """Class for test cases"""
@@ -48,6 +50,7 @@ class TestCaseFileStorage(unittest.TestCase):
         cy = City()
         am = Amenity()
         rv = Review()
+        us = User()
         models.storage.new(bm)
         models.storage.new(us)
         models.storage.new(st)
@@ -67,8 +70,8 @@ class TestCaseFileStorage(unittest.TestCase):
         self.assertIn("Review." + rv.id, objs)
 
     def test_reload_no_file(self):
-        self.assertRaises(FileNotFoundError, models.storage.reload())
+        self.assertRaises(FileNotFoundError, storage.reload)
 
     def test_reload_with_arg(self):
         with self.assertRaises(TypeError):
-            models.storage.reload(None)
+            storage.reload(None)
